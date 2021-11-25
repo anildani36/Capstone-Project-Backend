@@ -10,9 +10,9 @@ app.use(express.urlencoded({extended:false}));
 
 //db config
 require('dotenv').config();
-require('./db/db.config')
+require('./src/db/db.config')
 //require('./models/teaminfo.model')
-require('./models/user.model')
+require('./src/models/user.model')
 
 
 //routes for requests made by user
