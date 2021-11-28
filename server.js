@@ -17,7 +17,9 @@ require('./src/models/user.model')
 
 //routes for requests made by user
 app.get("/", async (req, res) => {
-    res.send("Welcome to Backend !")
+    res.json({
+        msg: 'Welcome to Backend !'
+    });
 })
 
 app.post("/user/login", async (req, res) => {
@@ -62,19 +64,7 @@ app.post("/user/register", async (req, res) => {
 })
 
 app.get("/about", async (req, res) => {
-    try {
-        Team.findAll()
-        .then(data => {
-            res.status(200).json({
-                teamData:data
-            });
-        })
-        .catch((err) => {
-            res.status(500).send(err)
-        })
-    } catch (error) {
-        res.status(400).send(error);
-    }
+    res.send('about api api')
 })
 
 
