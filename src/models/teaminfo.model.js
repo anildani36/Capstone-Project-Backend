@@ -1,25 +1,27 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 // User Schema Declaration
-const userSchema = new mongoose.Schema({
+const teamSchema = new mongoose.Schema({
     name : {
         type: String,
         required: true
     },
     role : {
         type: String,
-        required: true,
+        required: true
     },
     github : {
-        link: String,
+        type: String,
+        required: true,
         unique: true
     },
     linkedin : {
-        link: String,
+        type: String,
+        required: true,
         unique: true
-    }
+    },
 })
 
 //creating new collection in db
-const teamInfo = new mongoose.model("teamInfo", userSchema);
-module.exports = teamInfo;
+const Team = new mongoose.model("Team", teamSchema);
+module.exports = Team;

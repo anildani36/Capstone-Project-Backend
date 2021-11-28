@@ -11,11 +11,15 @@ app.use(express.urlencoded({extended:false}));
 //db config
 require('dotenv').config();
 require('./src/db/db.config')
-//require('./models/teaminfo.model')
+const Team = require('./src/models/teaminfo.model')
 require('./src/models/user.model')
 
 
 //routes for requests made by user
+app.get("/", async (req, res) => {
+    res.send("Welcome to Backend !")
+})
+
 app.post("/user/login", async (req, res) => {
     try {
         //getting user entered fields
@@ -52,6 +56,22 @@ app.post("/user/register", async (req, res) => {
         const registered = await registerUser.save();
         res.status(201).send("Registered Successfully");
 
+    } catch (error) {
+        res.status(400).send(error);
+    }
+})
+
+app.get("/about", async (req, res) => {
+    try {
+        Team.findAll()
+        .then(data => {
+            res.status(200).json({
+                teamData:data
+            });
+        })
+        .catch((err) => {
+            res.status(500).send(err)
+        })
     } catch (error) {
         res.status(400).send(error);
     }

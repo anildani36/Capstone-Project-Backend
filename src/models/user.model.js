@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose")
+const bcrypt = require("bcryptjs")
 
 // User Schema Declaration
 const userSchema = new mongoose.Schema({
@@ -27,5 +27,5 @@ userSchema.pre("save", async function(next) {
 })
 
 //creating new collection in db
-const User = new mongoose.model("User", userSchema);
-module.exports = User;
+const User = new mongoose.model("User", userSchema)
+module.exports = User
