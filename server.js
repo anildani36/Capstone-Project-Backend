@@ -16,11 +16,11 @@ require('./src/models/user.model')
 
 
 //routes for requests made by user
-app.get("/", async (req, res) => {
-    res.json({
-        msg: 'Welcome to Backend !'
-    });
-})
+// app.get("/", async (req, res) => {
+//     res.json({
+//         msg: 'Welcome to Backend !'
+//     });
+// })
 
 app.post("/user/login", async (req, res) => {
     try {
