@@ -1,10 +1,12 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
+const cors=require('cors');
 const app = express();
 
 //defining port for server
 const port = process.env.PORT || 4000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
